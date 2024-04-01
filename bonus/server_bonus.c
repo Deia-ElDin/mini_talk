@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tobinary.c                                      :+:      :+:    :+:   */
+/*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/01 04:12:43 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/01 08:53:15 by dehamad          ###   ########.fr       */
+/*   Created: 2024/03/31 21:08:47 by dehamad           #+#    #+#             */
+/*   Updated: 2024/04/01 10:50:23 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "to.h"
+#include "minitalk.h"
 
-char	*ft_tobinary(char *str)
+int	main(void)
 {
-	char	*bits;
-	size_t	len;
-	int		bit_index;
-	size_t	index;
+	pid_t	pid;
 
-	len = ft_strlen(str);
-	if (!len)
-		return (NULL);
-	bits = (char *)ft_calloc(len * 8 + 1, sizeof(char));
-	if (!bits)
-		return (NULL);
-	index = 0;
-	while (*str)
-	{
-		bit_index = 8;
-		while (bit_index)
-			bits[index++] = ((*str >> --bit_index) & 1) + '0';
-		str++;
-	}
-	return (bits);
+	pid = getpid();
+	ft_putnbr_fd(pid, 1);
+	ft_putchar_fd('\n', 1);
+	signal(SIGUSR1, sigusr_handler);
+	signal(SIGUSR2, sigusr_handler);
+	while (1)
+		pause();
+	return (0);
 }

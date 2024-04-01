@@ -18,13 +18,12 @@ make
 
 ### Running
 
-First, start the server by running:
-`./server`
+Open 2 terminals, one for the server and the other for the client.
 
-Then it will give you a SERVER_PID Number:
-i.e. 73327
+First, start with the server terminal by running:
+`./server` and keep it running, it will print the SERVER_PID number: i.e. 73327.
 
-Then, start the client by providing the server's process ID (PID) and the message to send:
+Then, start the client on the client terminal by providing the server's process ID (PID) and the message to send:
 `./client [SERVER_PID] [MESSAGE]`
 
 Replace [SERVER_PID] with the process ID of the server and [MESSAGE] with the message you want to send.
