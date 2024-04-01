@@ -19,13 +19,13 @@ make
 ### Running
 
 First, start the server by running:
-./server
+`./server`
 
 Then it will give you a SERVER_PID Number:
 i.e. 73327
 
 Then, start the client by providing the server's process ID (PID) and the message to send:
-./client [SERVER_PID] [MESSAGE]
+`./client [SERVER_PID] [MESSAGE]`
 
 Replace [SERVER_PID] with the process ID of the server and [MESSAGE] with the message you want to send.
-./client 73327 "Hello, Deia!"
+`./client 73327 "Hello, Deia!"`
