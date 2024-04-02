@@ -6,33 +6,43 @@
 #    By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 19:07:04 by dehamad           #+#    #+#              #
-#    Updated: 2024/04/01 13:02:21 by dehamad          ###   ########.fr        #
+#    Updated: 2024/04/01 18:30:59 by dehamad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SERVER_NAME = server
-CLIENT_NAME = client
+SERVER = server
+CLIENT = client
+SERVER_BONUS = server_bonus
+CLIENT_BONUS = client_bonus
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = libft/libft.a
-SERVER_SRC = server.c utils.c
-CLIENT_SRC = client.c utils.c
-BONUS_SRCS = ./bonus/client_bonus.c ./bonus/server_bonus.c
+MANDATORY_SRC = utils.c
+SERVER_SRC = server.c
+CLIENT_SRC = client.c
+BONUS_SERVER_SRC = ./bonus/server_bonus.c
+BONUS_CLIENT_SRC = ./bonus/client_bonus.c
 
-NAME = $(SERVER_NAME) $(CLIENT_NAME)
-NAMES = $(NAME) $(SERVER_NAME)_bonus $(CLIENT_NAME)_bonus
+NAME = $(SERVER) $(CLIENT)
+BONUS_NAME = $(SERVER_BONUS) $(CLIENT_BONUS)
 
 all: $(NAME)
 
-$(NAME): $(SERVER_SRC) $(CLIENT_SRC) $(LIBFT)
-	$(CC) $(CFLAGS) $(SERVER_SRC) $(LIBFT) -o $(SERVER_NAME)
-	$(CC) $(CFLAGS) $(CLIENT_SRC) $(LIBFT) -o $(CLIENT_NAME)
+bonus: $(BONUS_NAME)
 
-bonus: $(BONUS_SRCS) $(LIBFT)
-	$(CC) $(CFLAGS) $(BONUS_SRCS) $(LIBFT) -o $(SERVER_NAME)_bonus
-	$(CC) $(CFLAGS) $(BONUS_SRCS) $(LIBFT) -o $(CLIENT_NAME)_bonus
+$(SERVER): $(SERVER_SRC) $(MANDATORY_SRC) $(LIBFT)
+	$(CC) $(CFLAGS) $^ $(LIBFT) -o $@
+
+$(CLIENT): $(CLIENT_SRC) $(MANDATORY_SRC) $(LIBFT)
+	$(CC) $(CFLAGS) $^ $(LIBFT) -o $@
+
+$(SERVER_BONUS): $(BONUS_SERVER_SRC) $(MANDATORY_SRC) $(LIBFT)
+	$(CC) $(CFLAGS) $^ $(LIBFT) -o $@
+
+$(CLIENT_BONUS): $(BONUS_CLIENT_SRC) $(MANDATORY_SRC) $(LIBFT)
+	$(CC) $(CFLAGS) $^ $(LIBFT) -o $@
 	
 $(LIBFT):
 	make -C libft
@@ -45,7 +55,7 @@ clean:
 	make -C libft clean
 
 fclean: clean
-	rm -f $(NAMES) 
+	rm -f $(NAME) $(BONUS_NAME)
 	make -C libft fclean
 
 re: fclean all

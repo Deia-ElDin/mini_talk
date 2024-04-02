@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:08:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/01 11:48:16 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/03 01:52:43 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,14 @@ int	main(int ac, char **av)
 	pid_t	pid;
 
 	if (ac != 3)
-		return (0);
+		exit_error(AC_ERR);
+	is_valid_arg(av[1]);
 	res = ft_atoi(av[1]);
 	if (res.error)
-		return (0);
+		exit_error(PID_ERR);
 	pid = res.nbr;
-	while (*av[2])
-	{
-		send_bit(pid, *av[2]);
-		av[2]++;
-	}
-	send_bit(pid, '\n');
+	if (!pid)
+		exit_error(KERNAL_ERR);
+	send_signals(pid, av[2]);
 	return (0);
 }
