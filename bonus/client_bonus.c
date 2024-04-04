@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:08:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/03 03:32:01 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/04 01:28:34 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main(int ac, char **av)
 	pid_t	server_pid;
 	pid_t	client_pid;
 
-	signal(SIGUSR1, ack_signal);
 	client_pid = getpid();
 	if (ac != 3)
 		exit_error(AC_ERR);
@@ -40,10 +39,7 @@ int	main(int ac, char **av)
 		exit_error(KERNAL_ERR);
 	if (!*av[2])
 		return (0);
+	signal(SIGUSR1, ack_signal);
 	send_signals(server_pid, av[2]);
-	while (1)
-		pause();
 	return (0);
 }
-
-

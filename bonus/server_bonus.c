@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:08:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/03 03:32:23 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/04 05:15:39 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,3 +56,30 @@ int	main(void)
 		pause();
 	return (0);
 }
+
+/*
+	sigaction:
+	The sigaction function is used in Unix-like operating systems 
+	(including Linux) to change the action taken by a process on 
+	receipt of a specific signal. It allows you to specify a handler 
+	function to be called when the signal occurs, among other options. 
+	Here's a breakdown of its parameters:
+	1) signum: The signal number you want to change the action for.
+	2) sa: A pointer to a struct sigaction object containing information
+		about the action to be taken.
+	3) oldact: (Optional) A pointer to a struct sigaction object where 
+		the previous action for the signal will be stored.
+
+	The struct sigaction object (sa) contains the following members:
+	1) sa_handler: A pointer to the signal handling function. 
+		Either this or sa_sigaction should be set, but not both.
+	2) sa_sigaction: A pointer to the signal handling function with 
+		an extended signature that includes additional information 
+		about the signal and the context in which it occurred.
+	3) sa_mask: A set of signals to be blocked while the signal 
+		handler is executing. This prevents the handler from being 
+		interrupted by certain signals.
+	4) sa_flags: Additional flags that modify the behavior of the signal 
+		handler. These can include options like SA_RESTART, 
+		SA_SIGINFO, and others.
+*/
