@@ -6,13 +6,13 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:08:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/04 05:22:17 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/04 09:04:35 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk.h"
+#include "minitalk_bonus.h"
 
-static void	sig_handler(int signum, siginfo_t *info, void *context)
+static void	receive_signals_bonus(int signum, siginfo_t *info, void *context)
 {
 	pid_t		client_pid;
 	static char	bits[8];
@@ -21,14 +21,16 @@ static void	sig_handler(int signum, siginfo_t *info, void *context)
 	int			i;
 
 	(void)context;
+	if (index == 8)
+		return ;
 	if (signum == SIGUSR1)
 		bits[index++] = '0';
 	else if (signum == SIGUSR2)
 		bits[index++] = '1';
-	decimal = 0;
-	i = 0;
 	if (index == 8)
 	{
+		decimal = 0;
+		i = 0;
 		while (i < 8)
 			decimal = (decimal << 1) | (bits[i++] - '0');
 		ft_putchar_fd(decimal, 1);
@@ -47,7 +49,7 @@ int	main(void)
 	pid = getpid();
 	ft_putnbr_fd(pid, 1);
 	ft_putchar_fd('\n', 1);
-	sa.sa_sigaction = sig_handler;
+	sa.sa_sigaction = receive_signals_bonus;
 	sigemptyset(&sa.sa_mask);
 	sa.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &sa, NULL);
@@ -82,4 +84,13 @@ int	main(void)
 	4) sa_flags: Additional flags that modify the behavior of the signal 
 		handler. These can include options like SA_RESTART, 
 		SA_SIGINFO, and others.
+
+	sigemptyset: This is a function that initializes a signal set 
+	to be empty, meaning it clears all signals from the set.
+
+	SA_SIGINFO is a flag used in the sa_flags field of the struct 
+	sigaction structure in Unix-like operating systems, including 
+	Linux. It indicates that the signal handler function 
+	(sa_sigaction) expects to receive additional information 
+	about the signal when it is called.
 */
