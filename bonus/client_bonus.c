@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:08:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/04 01:28:34 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/04 05:41:38 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 		exit_error(PID_ERR);
 	server_pid = res.nbr;
 	if (!server_pid)
-		exit_error(KERNAL_ERR);
+		exit_error(SAME_PROCCESS_ERR);
 	if (!*av[2])
 		return (0);
 	signal(SIGUSR1, ack_signal);

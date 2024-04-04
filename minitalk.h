@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:08:59 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/03 01:57:57 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/04 05:42:12 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 # define AC_ERR "Invalid number of arguments"
 # define PID_ERR "Invalid PID"
-# define KERNAL_ERR "Invalid PID, kernal process can't be used"
+# define SAME_PROCCESS_ERR "Invalid PID, you can't send signals to the same\
+process"
 
 // Utils
 void	exit_error(char *str);

@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 10:26:31 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/04 05:21:57 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/04 05:29:45 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ void	receive_signals(int signum)
 /*
 * void	receive_signals(int signum)
 {
-
 	while (i < 8)
 		decimal = (decimal << 1) | (bits[i++] - '0');
 		shifting decimal by 1 to the left == multiplying decimal by 2
