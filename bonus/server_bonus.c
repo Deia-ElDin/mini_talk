@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:08:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/04 05:15:39 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/04 05:22:17 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	sig_handler(int signum, siginfo_t *info, void *context)
 {
 	pid_t		client_pid;
-	static char	bits[9];
+	static char	bits[8];
 	static int	index;
 	int			decimal;
 	int			i;

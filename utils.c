@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 10:26:31 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/04 05:16:56 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/04 05:21:57 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	send_signals(pid_t pid, char *str)
 
 void	receive_signals(int signum)
 {
-	static char	bits[9];
+	static char	bits[8];
 	static int	index;
 	int			decimal;
 	int			i;
