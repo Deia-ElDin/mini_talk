@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 10:26:31 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/04 05:29:45 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/04 06:08:05 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ void	send_signals(pid_t pid, char *str)
 				signal = SIGUSR1;
 			if (kill(pid, signal) == -1)
 				exit_error(PID_ERR);
-			usleep(200);
+			usleep(300);
 		}
 		str++;
 		if (!*str)
 		{
 			bit_index = 8;
 			while (bit_index--)
-				(kill(pid, SIGUSR1), usleep(200));
+				(kill(pid, SIGUSR1), usleep(300));
 		}
 	}
 }
