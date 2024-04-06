@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:08:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/04 09:01:21 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/06 07:02:03 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,3 +84,11 @@ int	main(int ac, char **av)
 	send_signals(pid, av[2]);
 	return (0);
 }
+
+/*
+	if ((*str >> --bit_index) & 1)
+	assume: *str = 001100101
+		*str >> --bit_index = 001100101 >> 7 = 00000000
+		00000000 & 00000001 = 00000000
+	
+*/
