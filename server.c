@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:08:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/06 06:45:11 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/06 07:16:11 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,15 @@ int	main(void)
 
 		character = character << 1;
 		if (signum == SIGUSR1)
-			character = 00000010 | 00000000 = 00000000;
+			character = 00000010 | 00000000 = 00000010;
 		if (signum == SIGUSR2)
 			character = 00000010 | 00000001 = 00000011;
 
 		character = character << 1;
 		if (signum == SIGUSR1)
-			character = 00000110 | 00000000 = 00000000;
+			character = 00000110 | 00000000 = 00000110;
 		if (signum == SIGUSR2)
 			character = 00000110 | 00000001 = 00000111;
-
 		
 	}
 */
