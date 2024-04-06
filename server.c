@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:08:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/06 07:16:11 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/06 07:18:16 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ int	main(void)
 /*
 	* void	receive_signals(int signum)
 	{
-		initialize
-			character: 00000000
-
+		static character = 00000000
 
 		(00000000)₂ = (0 × 2⁷) + (0 × 2⁶) + (0 × 2⁵) + (0 × 2⁴) + (0 × 2³)
 		+ (0 × 2²) + (0 × 2¹) + (0 × 2⁰) = (0)₁₀
