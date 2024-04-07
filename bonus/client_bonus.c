@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:08:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/06 06:59:11 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/08 03:06:04 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	exit_error_bonus(char *str)
 	exit(EXIT_FAILURE);
 }
 
-static void	is_valid_arg_bonus(char *str)
+static void	is_valid_pid_bonus(char *str)
 {
 	int	i;
 	int	dash_counter;
@@ -68,22 +68,17 @@ static void	send_signals_bonus(pid_t pid, char *str)
 static void	ack_signal_bonus(int signum)
 {
 	if (signum == SIGUSR1)
-	{
 		write(1, "Message sent successfully\n", 26);
-		exit(0);
-	}
 }
 
 int	main(int ac, char **av)
 {
 	t_atoi	res;
 	pid_t	server_pid;
-	pid_t	client_pid;
 
-	client_pid = getpid();
 	if (ac != 3)
 		exit_error_bonus(AC_ERR);
-	is_valid_arg_bonus(av[1]);
+	is_valid_pid_bonus(av[1]);
 	res = ft_atoi(av[1]);
 	if (res.error)
 		exit_error_bonus(PID_ERR);

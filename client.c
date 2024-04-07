@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:08:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/06 07:02:03 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/08 02:51:16 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	exit_error(char *str)
 	exit(EXIT_FAILURE);
 }
 
-static void	is_valid_arg(char *str)
+static void	is_valid_pid(char *str)
 {
 	int	i;
 	int	dash_counter;
@@ -56,12 +56,6 @@ static void	send_signals(pid_t pid, char *str)
 			usleep(300);
 		}
 		str++;
-		if (!*str)
-		{
-			bit_index = 8;
-			while (bit_index--)
-				(kill(pid, SIGUSR1), usleep(300));
-		}
 	}
 }
 
@@ -72,7 +66,7 @@ int	main(int ac, char **av)
 
 	if (ac != 3)
 		exit_error(AC_ERR);
-	is_valid_arg(av[1]);
+	is_valid_pid(av[1]);
 	res = ft_atoi(av[1]);
 	if (res.error)
 		exit_error(PID_ERR);
@@ -90,5 +84,4 @@ int	main(int ac, char **av)
 	assume: *str = 001100101
 		*str >> --bit_index = 001100101 >> 7 = 00000000
 		00000000 & 00000001 = 00000000
-	
 */
