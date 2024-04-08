@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:08:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/04/08 03:11:13 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/04/08 05:03:44 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,18 @@ int	main(void)
 }
 
 /*
+	struct sigaction {
+		void (*sa_handler)(int);
+		void (*sa_sigaction)(int, siginfo_t *, void *);
+		sigset_t sa_mask;
+		int sa_flags;
+		void (*sa_restorer)(void);
+	};
+
 	sigaction:
-	The sigaction function is used in Unix-like operating systems 
-	(including Linux) to change the action taken by a process on 
-	receipt of a specific signal. It allows you to specify a handler 
-	function to be called when the signal occurs, among other options. 
+	change the action taken by a process on receipt of a specific signal.
+	It allows you to specify a handler function to be called when the 
+	signal occurs, among other options. 
 	Here's a breakdown of its parameters:
 	1) signum: The signal number you want to change the action for.
 	2) sa: A pointer to a struct sigaction object containing information
